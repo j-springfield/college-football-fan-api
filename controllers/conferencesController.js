@@ -13,7 +13,7 @@ async function getConferences(req, res) {
         res.json(response.data);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Failed to make the request to get team data.' });
+        res.status(500).json({ error: 'Failed to make the request to get conferences data.' });
     }
 }
 
