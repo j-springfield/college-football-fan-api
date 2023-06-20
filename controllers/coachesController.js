@@ -1,28 +1,9 @@
-import axios from 'axios';
-import config from '../config.js';
-
-const API_KEY = config.apiKey;
+import http from '../utils/http.js';
 
 async function getCoaches(req, res) {
-    try {
-        if (!req.query.team) {
-            throw new Error('The team is missing from the query parameters for the coaches endpoint.');
-        }
-
-        const response = await axios.get('https://api.collegefootballdata.com/coaches', {
-            headers: {
-                Authorization: `Bearer ${API_KEY}`
-            },
-            params: {
-                team: req.query.team?.toString(),
-                year: req.query.year?.toString()
-            }
-        });
-        res.json(response.data);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to make the request to get coaches data.' });
-    }
+    if (!req.query.team) throw new Error('The team is missing from the query parameters for the coaches endpoint.');
+    const response = await http.get(res, 'coaches', req);
+    res.json(response.data);
 }
 
 export default {

@@ -6,9 +6,10 @@ const API_KEY = config.apiKey;
 async function getTeams(req, res) {
     try {
         const response = await axios.get('https://api.collegefootballdata.com/teams', {
+            timeout: 15000,    
             headers: {
-                Authorization: `Bearer ${API_KEY}`
-            },
+                    Authorization: `Bearer ${API_KEY}`
+                },
             params: {
                 conference: req.query.conference?.toString()
             }
@@ -27,6 +28,7 @@ async function getRoster(req, res) {
         }
 
         const response = await axios.get('https://api.collegefootballdata.com/roster', {
+            timeout: 15000,
             headers: {
                 Authorization: `Bearer ${API_KEY}`
             },
