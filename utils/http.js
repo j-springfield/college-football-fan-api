@@ -1,4 +1,5 @@
 import axios from 'axios';
+import querystring from 'querystring';
 import config from '../config.js';
 
 const BASE_URL = 'https://api.collegefootballdata.com';
@@ -12,7 +13,7 @@ async function get(res, endpoint, req) {
             headers: {
                 Authorization: `Bearer ${API_KEY}`
             },
-            params: req.params,
+            params: querystring.stringify(req.query),
         });
         return response;
     } catch (error) {
