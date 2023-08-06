@@ -13,3 +13,4 @@ export default config;
 ```
 4. Run the `npm i` command to install all dependencies.
 5. Run the `npm start` command to start serving the app on port 8080.
+6. Proceed to the college-football-fan repo: https://github.com/j-springfield/college-football-fan
