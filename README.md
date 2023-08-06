@@ -6,7 +6,7 @@
 3. Take that API key and create a config.js file in the root of the project directory, and then put your API key in that config file. The file should look like this:
 ```
 const config = {
-    apiKey: <API Key Goes Here>,
+    apiKey: 'Your API Key from the email',
 }
 
 export default config;
